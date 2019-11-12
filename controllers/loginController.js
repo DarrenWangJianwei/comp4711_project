@@ -4,6 +4,10 @@ exports.userLogin = (req, res) => {
     res.render('login', { loginCSS: true });
 }
 
+exports.userDetailsPage = (req, res) => {
+    res.render('detailsPage', { detailCSS: true });
+}
+
 exports.postDetails = (req, res, next) => {
     let a_imageURL = req.body.img_Url;
     let a_about = req.body.about;
