@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>{{ pageTitle }}</title>
-
+    {{#if loginCSS}}
+    <link href='/css/login.css' rel='stylesheet' />
+    {{/if}}
 </head>
+
 <body>
 
     {{{ body }}}
 </body>
+
 </html>
