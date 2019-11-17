@@ -1,0 +1,40 @@
+{{>searchBar}}
+<div class="userAndContent">
+    {{>user_profile}}
+    <div class="right">
+        <div class="questionBar">
+            <h3>What's your question today?</h3>
+            <form class="form-control" action="/user/post" method="POST">
+                <input style="display:none" name="user_id" value={{user.user_id}}>
+                <input class="subject" name="subject" placeholder="subject" />
+                <textarea rows="4" name="detail" placeholder="explain in detail ..."></textarea>
+                <div>
+                    <select name="topic">
+                        <option value="php">php</option>
+                        <option value="nodejs">nodejs</option>
+                        <option value="java">java</option>
+                        <option value="sql">sql</option>
+                        <option value="zend">zend</option>
+                    </select>
+                    <button type="submit">post to timeline</button>
+                </div>
+            </form>
+                
+                <div>
+                    <label>Search by topic</label>
+                    <select class="searchLastestDiscussionByTopic">
+                        <option value="php">php</option>
+                        <option value="nodejs">nodejs</option>
+                        <option value="java">java</option>
+                        <option value="sql">sql</option>
+                        <option value="zend">zend</option>
+                    </select>
+                    <button onClick='searchLastestDiscussionByTopic()'>go-></button>
+                    <button onClick='clearUpDisplayNone()'>clear</button>
+                </div>
+
+        </div>
+            <h3>Latest discussions</h3>
+        {{>postsView}}
+    </div>
+</div>

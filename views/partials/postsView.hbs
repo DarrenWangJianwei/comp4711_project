@@ -1,0 +1,45 @@
+<div class="discussions">
+    {{#each posts}}
+        <div class="each" data={{this.post_id}}>
+        
+            <div class="img">
+                <a href="/user/{{../user.user_id}}/view/{{this.user_id}}"><img src={{this.image_url}}></a>
+            </div>
+
+            <div class="content">
+                <span>{{this.topic}}</span>
+                <h4>{{this.subject}}</h4>
+                <p>{{this.details}}</p>
+                <div class="dateAndReply">
+                    <span Onclick="showReplys(event)">
+                        {{replys ../replys post_id}} replies
+                    </span>
+                    <p>{{this.post_date}}</p>
+                </div>
+                <div class="replys">
+                    <div class="comment">
+                        <form action="/user/discussion/reply/submit" method="POST">
+                            <input style="display:none" name="post_id" value={{post_id}}>
+                            <input style="display:none" name="user_id" value={{../user.user_id}}>
+                            <textarea rows="3" name="comment" placeholder="add your reply ..."></textarea>
+                            <button type="submit">comment</button>
+                        </form>
+                    </div>
+                    {{#each ../replys}}
+                        {{#xIf this.post_id "===" ../this.post_id}}
+                            <div class="eachReply">
+                                <div class="imgReplier">
+                                    <img src={{image_url}}>
+                                </div>
+                                <p>{{content}}</p>
+                            </div>
+                        {{/xIf}}
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    {{/each}}
+    <div class="next">
+        <button type="submit">Next-></button>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="searchBar">
+    <div class="logo">
+        <a href="/user/{{user.user_id}}"><img src="/img/logo.jpg" /></a>
+    </div>
+    <div class="searchForm">
+        <form class="form-control" action="/user/search/subject" method="POST">
+            <input name="searchInput" placeholder="Search"/>
+            <input name="search_user_id" value={{user.user_id}} style="display: none;"/>
+            <button type="submit">Search</button>
+        </form>
+    </div>
+    <div class="logout">
+        <button >logout</button>
+    </div>    
+</div>

@@ -1,0 +1,65 @@
+.userBar{
+    margin-left: 10%;
+    display:flex;
+}
+.user {
+    margin-top:40px;
+    width:60%;
+}
+.user img{
+    width:150px;
+}
+.user p{
+    font-size:48px;
+}
+.user span{
+    font-size:24px;
+    display: block;
+    color: black;
+}
+.messageBar{
+    margin-top:180px;
+    width:30%;
+}
+.likes{
+    margin-top:30px;
+    line-height: 25px;
+
+}
+
+.likes button{
+    margin-left:10px;
+    border-radius: 50%;
+    color: white;
+    background-color: #3399FF;
+    border: 0px;
+    width:25px;
+    height:25px;
+    position: absolute;
+    right:0px;
+    bottom:25px;
+}
+
+.likes {
+    color: #3399FF;
+    font-weight: bold;
+    font-size:18px;
+    position: relative;
+    width:30%;
+
+}
+
+.messageBar > button{
+    background-color:#3399FF;
+    color:white;
+    font-weight: bold;
+    padding:5px;
+    padding-left:15px;
+    padding-right:15px;
+    font-size:15px;
+}
+
+.postContent{
+    margin-left:10%;
+    margin-top:50px;
+}

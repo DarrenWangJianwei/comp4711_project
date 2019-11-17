@@ -13,7 +13,6 @@ async function getData(sql) {
       //'mssql://' + config.dbuser + ':' + config.dbpassword + '@' + config.dbhost + '/' + config.dbname
       const request = pool1.request();
     	const result = await request.query(sql)
-    	console.dir(result)
     	return result.recordset;
   } catch (err) {
     console.log("Error: "+ err);

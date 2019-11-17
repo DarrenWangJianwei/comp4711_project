@@ -1,0 +1,26 @@
+{{>searchBar}}
+<div class="userBar">
+    <div class="user" data={{theUser.user_id}}>
+        <img src='{{theUser.image_url}}'>
+        <p>{{theUser.firstName}} {{theUser.lastName}}</p>
+        <span>{{theUser.about}}</span>
+        <span>{{theUser.country}}</span>
+    </div>
+    <div class="messageBar">
+        <button>Message</button>
+        <div class="likes">
+            <p class="likes_p">{{theUser.likes}} Likes</p>
+            <form action="/user/likes" method="POST">
+                <input style="display:none" name="user_id" value={{user.user_id}}>
+                <input style="display:none" name="theUser_id" value={{theUser.user_id}}>
+                <input style="display:none" name="likes" value={{theUser.likes}}>
+                <button type="submit">+</button>
+            </form>
+            <span>{{posts.length}} Posts</span>
+        </div>
+    </div>
+</div>
+<div class="postContent">
+    <h2>All Posts by {{theUser.firstName}} {{theUser.lastName}}</h2>
+    {{>postsView}}
+</div>

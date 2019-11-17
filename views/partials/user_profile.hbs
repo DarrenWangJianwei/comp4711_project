@@ -1,0 +1,16 @@
+    <div class="left">
+        <div class="user" data={{user.user_id}}>
+            <img src='{{user.image_url}}'>
+            <p>{{user.firstName}} {{user.lastName}}</p>
+            <span>{{user.about}}</span>
+        </div>
+        <div class="userPostAndMessage">
+            <ul>
+                <li><a href="/user/{{user.user_id}}/posts">Posts</a><span>{{userPost.length}}</span></li>
+                <li><a href="/message/">Messages</a><span>5</span></li>
+                <li>Likes<span>{{user.likes}}</span></li>
+                <li><a href="/user/{{user.user_id}}/edit">Edit Profile</a></li>
+            </ul>
+
+        </div>
+    </div>

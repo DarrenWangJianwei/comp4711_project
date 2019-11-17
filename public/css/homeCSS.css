@@ -1,0 +1,205 @@
+/***************************Search Bar*********************/
+.searchBar{
+    display:flex;
+    width:100%;
+}
+.logo img{
+    width:50px;
+}
+.searchBar input{
+    margin:5px;
+    height:25px;
+}
+.searchBar button{
+    background-color:#3399FF;
+    color:white;
+    font-weight: bold;
+    height:30px;
+    margin:5px;
+}
+.searchForm{
+    width:70%;
+    margin-left:20px;
+}
+.searchForm input{
+    width:35%;
+    background-color: rgb(215, 232, 248);
+}   
+.searchBar form button{
+    margin-left:0px;
+}
+.logout button{
+    width:80px;
+}
+
+/***************************End Search Bar*********************/
+
+/***************************User And Content*********************/
+.userAndContent{
+    display:flex;
+    width:100%;
+}
+.left{
+    width:30%;
+}
+.right{
+    width:60%;
+}
+
+.questionBar{
+    color:rgb(132, 133, 134)
+}
+.questionBar input,textarea{
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width:50%;
+    margin-top:10px;
+}
+.questionBar div{
+    margin-top:10px;
+}
+.questionBar select{
+    color:#3399FF;
+}
+.questionBar button{
+    background-color:#3399FF;
+    color:white;
+    font-weight: bold;
+}
+
+/***************************END User And Content*********************/
+
+/***************************Discussion*********************/
+.discussions{
+    margin-top:30px;
+    width:70%;
+}
+.discussions{
+    color:rgb(132, 133, 134);
+}
+.each{
+    margin-top:40px;
+    display:flex;
+}
+.content{
+    margin-left: 20px;
+}
+.content h4,p{
+    margin:0;
+}
+.content p{
+    margin-top:10px;
+    margin-left:25px;
+}
+.img img{    
+    border-radius: 50%;
+    border: 3px solid #73AD21;
+}
+.content{
+    width:100%;
+}
+.content >span{
+    color:#3399FF;
+    border: 1px solid #3399FF;
+    float:right;
+    position: relative;
+}
+.dateAndReply p{
+    font-size: 15px;
+}
+.dateAndReply span{
+    font-size: 15px;
+}
+.dateAndReply span{
+    float:right;
+}
+.next{
+    float:right;
+    margin-top:40px;
+}
+.next button{
+    font-size:15px;
+    padding:5px;
+    padding-left:15px;
+    padding-right:15px;
+    color:#3399FF;
+    border: 1px solid #3399FF;
+    background-color: white;
+}
+
+/***************************END Discussion*********************/
+
+/***************************User*********************/
+.left{
+    margin-top : 60px;
+    text-align: center;
+}
+.user img{
+    border-radius: 50%;
+    border: 3px solid #73AD21;
+}
+.user p{
+    margin-top:10px;
+    font-size:24px;
+    font-weight: bold;
+    color:black;
+}
+.user span{
+    margin-top:10px;
+    font-size:12px;
+    color:rgb(134, 135, 136);
+}
+.userPostAndMessage{
+    width:50%;
+    margin-top:60px;
+    text-align: left;
+    margin-left:20%;
+}
+.userPostAndMessage ul{
+    list-style-type: none;
+}
+.userPostAndMessage span{
+    float:right;
+}
+.userPostAndMessage ul li:last-child{
+    margin-top:40px;
+}
+
+/***************************replies*********************/
+.imgReplier {
+    margin-top:10px;
+}
+.imgReplier img{
+    border-radius: 50%;
+    border: 3px solid rgb(41, 44, 184);
+    width:70%;
+}
+.eachReply{
+    display: flex;
+}
+.eachReply p{
+    padding-top:15px;
+}
+.dateAndReply > span{
+    text-decoration: underline;
+}
+.dateAndReply > span:hover{
+    cursor: pointer;
+    text-decoration: underline;
+    color:#d88b34;
+}
+.comment textarea{
+    width:100%;
+    margin-bottom: 5px;
+}
+.comment button{
+    float:right;
+    background-color:#3399FF;
+    color:white;
+    font-weight: bold;
+}
+.content>.replys{
+    display: none;
+}
