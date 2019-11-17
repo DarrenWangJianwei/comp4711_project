@@ -64,29 +64,31 @@ Handlebars.registerHelper('xIf', function (lvalue, operator, rvalue, options) {
 });
 
 app.engine(
-    'hbs',
-    expressHbs({
-      layoutsDir: 'views/layouts/',
-      defaultLayout: 'main-layout',
-      extname: 'hbs'
-    }),
-    'handlebars', expressHbs({
-      helpers:{
-        // Function to do basic mathematical operation in handlebar
-        math: function(lvalue, operator, rvalue) {lvalue = parseFloat(lvalue);
-            rvalue = parseFloat(rvalue);
-            return {
-                "+": lvalue + rvalue,
-                "-": lvalue - rvalue,
-                "*": lvalue * rvalue,
-                "/": lvalue / rvalue,
-                "%": lvalue % rvalue
-            }[operator];
-        }
-    }})
-  );
-  app.set('view engine', 'hbs');
-  app.set('views', 'views');
+  'hbs',
+  expressHbs({
+    layoutsDir: 'views/layouts/',
+    defaultLayout: 'main-layout',
+    extname: 'hbs'
+  }),
+  'handlebars', expressHbs({
+    helpers: {
+      // Function to do basic mathematical operation in handlebar
+      math: function (lvalue, operator, rvalue) {
+        lvalue = parseFloat(lvalue);
+        rvalue = parseFloat(rvalue);
+        return {
+          "+": lvalue + rvalue,
+          "-": lvalue - rvalue,
+          "*": lvalue * rvalue,
+          "/": lvalue / rvalue,
+          "%": lvalue % rvalue
+        }[operator];
+      }
+    }
+  })
+);
+app.set('view engine', 'hbs');
+app.set('views', 'views');
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false })) // middleware
@@ -96,12 +98,12 @@ app.use(bodyParser.json()) // middleware
 
 let gameRoutes = require('./routes/myRoutes');
 
-app.use(express.static(path.join(__dirname,'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use(gameRoutes);
 
-app.listen(process.env.PORT||1337, () => console.log('Server ready'))
+app.listen(process.env.PORT || 1337, () => console.log('Server ready'))
 
 
 

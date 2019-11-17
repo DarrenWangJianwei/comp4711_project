@@ -6,6 +6,7 @@ const postController = require('../controllers/postController');
 const userController = require('../controllers/userController');
 
 const router = express.Router();
+
 router.get("/login",loginController.userLogin)
 
 
@@ -22,4 +23,9 @@ router.get("/user/:user_id/edit", userController.index)
 
 router.get("/user/:user_id/view/:user", userController.index)
 router.post("/user/likes", userController.increaseLikes)
+router.get("/detailsPage", loginController.userDetailsPage);
+
+router.post('/submitDetails', loginController.postDetails);
+
+
 module.exports = router;

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>{{ pageTitle }}</title>
@@ -10,10 +11,17 @@
     {{/if}}
     {{#if userCSS}}
         <link href='/css/userCSS.css' rel='stylesheet' />
+    {{#if loginCSS}}
+    <link href='/css/login.css' rel='stylesheet' />
+    {{/if}}
+    {{#if detailCSS}}
+    <link href='/css/stylesheet.css' rel='stylesheet' />
     {{/if}}
 </head>
+
 <body>
 
     {{{ body }}}
 </body>
+
 </html>
