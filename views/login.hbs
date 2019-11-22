@@ -2,25 +2,39 @@
     <div class="row1">
         <h1>Knowledge<span>Base</span></h1>
         <div id="login">
-            <input type="text" name="email" placeholder="email">
-            <input type="text" name="password" placeholder="password">
-            <button class="loginBtn">login</button>
+            <form action="" method="POST">
+                <input type="text" name="email" placeholder="email">
+                <input type="text" name="password" placeholder="password">
+                <button type="submit" class="loginBtn">login</button>
+            </form>
+            {{#if loginFail}}
+            <div id="loginErr">Password is not correct!</div>
+            {{/if}}
         </div>
     </div>
     <div class="row2">
-        <img src="https://i.ibb.co/TLnFXX0/vector-knowledge.jpg" alt="image" width="300px" height="350px">
-        <div id="signUp">
+        <div class="left">
+            <img src="https://i.ibb.co/TLnFXX0/vector-knowledge.jpg" alt="image" width="300px" height="350px">
+        </div>
+        <div class="right" >
             <h1 class="signUpTitle">Join the worlds largest community for knowledge sharing</h1>
+            <form action="/signUp" method="POST">
             <div class="signUpBody">
                 <div class="signUpName">
-                    <input type="text" name="firstname" placeholder="firstname">
-                    <input type="text" name="lastname" placeholder="lastname">
+                    <input type="text" name="firstName" placeholder="first name">
+                    <input type="text" name="lastName" placeholder="last name">
                 </div>
-                <input type="text" name="email" placeholder="email">
-                <input type="text" name="password" placeholder="password">
-                <input type="text" name="confirmpassword" placeholder="confirm password">
+                <div class="emailAndPassword">
+                    <input type="text" name="email" placeholder="email">
+                    <input type="text" name="password" placeholder="password">
+                    <input type="text" name="confirmpassword" placeholder="confirm password">
+                </div>
+                {{#if info}}
+                    <p>{{info}}</p>
+                {{/if}}
             </div>
-            <button class="signupBtn">signup</button>
+            <button type="submit" class="signupBtn">signup</button>
+            </form>
         </div>
     </div>
 </div>

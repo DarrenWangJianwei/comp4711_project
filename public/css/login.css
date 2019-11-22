@@ -1,0 +1,71 @@
+span{
+    color: #2fafeb;
+}
+.row1{
+    width:70%;
+    margin:0 auto;
+}
+.row2{
+    width:70%;
+    margin:0 auto;
+}
+.left{
+    margin-top:24px;
+    width:30%;
+    min-width:300px;
+    margin-right:20px;
+}
+
+.left img{
+    width:"300px";
+    height:"350px";
+}
+.right{
+    width:40%;
+    min-width:300px;
+}
+#login{
+    margin-top: 30px;
+    vertical-align: middle;
+    margin-left:20%;
+}
+
+.loginBtn{
+    background-color:#2fafeb;
+    color: white;
+    padding: 5px;
+}
+
+.row1{
+    display: flex;
+}
+
+.row2{
+    display: flex;
+}
+
+.signupBtn{
+    width: 100%;
+    background-color: #2fafeb;
+    color: white;
+    padding: 5px;
+}
+
+.signUpName{
+    display: flex;
+}
+.signUpName input:first-child{
+    margin-right:2%;
+}
+.signUpName input{
+    width:49%;
+}
+
+.emailAndPassword{
+    margin-top:10px;
+}
+.emailAndPassword input{
+    margin-bottom: 10px;
+    display: block;
+    width:99%;
+}

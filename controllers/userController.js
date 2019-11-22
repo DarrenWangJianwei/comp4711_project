@@ -12,6 +12,11 @@ exports.index = async (req,res) =>{
     console.log(userData);
     res.render('user',{user:userData[0],theUser:theUser[0],posts:userPosts,replys:getAllReplys,userCSS:true});
 }
+exports.edit = async (req,res) =>{
+    let user_id = req.params.user_id;
+    let userData = await userModel.getUser(user_id);
+    res.render('detailsPageWithName', { user_id: userData[0], detailCSS: true });
+}
 
 
 exports.increaseLikes = async (req,res) =>{

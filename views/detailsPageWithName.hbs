@@ -6,6 +6,8 @@
 </div>
 <div class="details">
     <form  action="/submitDetails/{{user_id.user_id}}" method="POST">
+        <input name="firstName" class="detailsInput" placeholder="first name" maxLength="50"><br>
+        <input name="lastName" class="detailsInput" placeholder="last name" maxLength="50"><br>
         <input style="display:none" name="user_id" value="{{user_id.user_id}}"/>
         <input type="text" class="detailsInput" name="img_Url" placeholder="imgurl" maxLength="255"><br>
         <textarea type="text" class="aboutInput" name="about" placeholder="a few lines about yourself..."
