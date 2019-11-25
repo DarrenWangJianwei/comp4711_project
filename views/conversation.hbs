@@ -1,0 +1,22 @@
+{{>searchBar}}
+    <div class="container">
+        <div class="left">
+            <div class="img">
+                <a href="#"><img src={{anotherData.image_url}}></a>
+            </div>
+            <p>{{anotherData.firstName}} {{anotherData.lastName}}</p>
+        </div>
+
+        <div class="right">
+            <div>
+                <form action="/conversation/check" method="POST">
+                    <input name="user_id" style="display:none" value={{user.user_id}}>
+                    <input name="another_user_id" style="display:none" value={{anotherData.user_id}}>
+                    <input name="subject" placeholder="subject">
+                    <textarea rows="6" name="message" placeholder="message details"></textarea>
+                    <button type="submit">Message</button>
+                </form>
+            </div>
+        </div>
+
+    </div>

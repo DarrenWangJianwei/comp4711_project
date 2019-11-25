@@ -9,7 +9,8 @@ exports.index = async (req,res) =>{
     let theUser = await userModel.getUser(user);
     let userPosts = await postModel.getPost(user);
     let getAllReplys = await replyModel.getAllReplys();
-    console.log(userData);
+
+    console.log(theUser[0]);
     res.render('user',{user:userData[0],theUser:theUser[0],posts:userPosts,replys:getAllReplys,userCSS:true});
 }
 exports.edit = async (req,res) =>{

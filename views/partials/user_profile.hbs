@@ -7,7 +7,7 @@
         <div class="userPostAndMessage">
             <ul>
                 <li><a href="/user/{{user.user_id}}/posts">Posts</a><span>{{userPost.length}}</span></li>
-                <li><a href="/message/">Messages</a><span>5</span></li>
+                <li><a href="/message/{{user.user_id}}">Messages</a><span>{{conversation.length}}</span></li>
                 <li>Likes<span>{{user.likes}}</span></li>
                 <li><a href="/user/{{user.user_id}}/edit">Edit Profile</a></li>
             </ul>

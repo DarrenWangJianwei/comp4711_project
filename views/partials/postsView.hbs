@@ -3,7 +3,11 @@
         <div class="each" data={{this.post_id}}>
         
             <div class="img">
-                <a href="/user/{{../user.user_id}}/view/{{this.user_id}}"><img src={{this.image_url}}></a>
+                {{#if this.user_id.[1]}}
+                    <a href="/user/{{../user.user_id}}/view/{{this.user_id.[0]}}"><img src={{this.image_url}}></a>
+                {{else}}
+                    <a href="/user/{{../user.user_id}}/view/{{this.user_id}}"><img src={{this.image_url}}></a>
+                {{/if}}
             </div>
 
             <div class="content">

@@ -1,0 +1,33 @@
+.container{
+    display: flex;
+    width:50%;
+    margin:0 auto;
+    margin-top:60px;
+}
+.left{
+    margin-top:0px;
+    width:30%;
+}
+
+.right{
+    width:100%;
+}
+.right input{
+    width:70%;
+    height:30px;
+}
+.right textarea{
+    width:100%;
+    overflow: auto;
+    outline: none;
+    resize: none;
+}
+.right button{
+    background-color:#3399FF;
+    color:white;
+    padding-top:10px;
+    padding-bottom:10px;
+    padding-left:20px;
+    padding-right:20px;
+    margin-top:20px;
+}

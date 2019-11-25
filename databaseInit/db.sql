@@ -11,7 +11,7 @@ CREATE TABLE dbo.usersProfile (
     image_url VARCHAR (255),
     about VARCHAR (255),
     country VARCHAR(50),
-    likes INT,
+    likes INT DEFAULT 0,
     dob Date
 );
 
@@ -31,6 +31,22 @@ CREATE TABLE dbo.reply(
     reply_date smalldatetime NOT NULL,
     post_id INT FOREIGN KEY REFERENCES dbo.post (post_id),
     user_id INT FOREIGN KEY REFERENCES dbo.usersProfile(user_id),
+)
+CREATE TABLE dbo.conversation(
+    conversation_id INT PRIMARY KEY IDENTITY (1,1),
+    conversation_date smalldatetime NOT NULL,
+    user1_user_id INT FOREIGN KEY REFERENCES dbo.usersProfile(user_id),
+    user2_user_id INT FOREIGN KEY REFERENCES dbo.usersProfile(user_id),
+)
+
+CREATE TABLE dbo.message(
+    message_id INT PRIMARY KEY IDENTITY (1,1),
+    conversation_id INT FOREIGN KEY REFERENCES dbo.conversation(conversation_id),
+    content VARCHAR(255),
+    message_date smalldatetime NOT NULL,
+    sender_user_id INT FOREIGN KEY REFERENCES dbo.usersProfile(user_id),
+    receiver_user_id INT FOREIGN KEY REFERENCES dbo.usersProfile(user_id),
+    isRead tinyint NOT NULL DEFAULT 0
 )
 
 INSERT INTO dbo.usersProfile (email,firstName,lastName,password,image_url,about,country,likes,dob)
@@ -57,3 +73,27 @@ INSERT INTO dbo.reply(content,reply_date,post_id,user_id)
 VALUES('something replied by user_id 3','2019-03-04 23:52:09',1,3);
 INSERT INTO dbo.reply(content,reply_date,post_id,user_id)
 VALUES('something replied by user_id 3','2019-05-06 23:52:09',3,3);
+
+
+INSERT INTO dbo.conversation(conversation_date,user1_user_id,user2_user_id)
+VALUES('2019-05-06 23:55:09',2,1)
+INSERT INTO dbo.conversation(conversation_date,user1_user_id,user2_user_id)
+VALUES('2019-05-06 23:57:09',3,1)
+INSERT INTO dbo.conversation(conversation_date,user1_user_id,user2_user_id)
+VALUES('2019-05-06 23:56:09',1,4)
+
+
+INSERT INTO dbo.message(conversation_id,content,message_date,sender_user_id,receiver_user_id)
+VALUES(1,'message from user_id 1','2019-05-06 23:52:09',1,2)
+INSERT INTO dbo.message(conversation_id,content,message_date,sender_user_id,receiver_user_id)
+VALUES(1,'message from user_id 2','2019-05-06 23:53:09',2,1)
+INSERT INTO dbo.message(conversation_id,content,message_date,sender_user_id,receiver_user_id)
+VALUES(1,'message from user_id 1','2019-05-06 23:54:09',1,2)
+INSERT INTO dbo.message(conversation_id,content,message_date,sender_user_id,receiver_user_id)
+VALUES(1,'message from user_id 2','2019-05-06 23:55:09',2,1)
+INSERT INTO dbo.message(conversation_id,content,message_date,sender_user_id,receiver_user_id)
+VALUES(2,'message from user_id 1','2019-05-06 23:56:09',1,3)
+INSERT INTO dbo.message(conversation_id,content,message_date,sender_user_id,receiver_user_id)
+VALUES(2,'message from user_id 3','2019-05-06 23:57:09',3,1)
+INSERT INTO dbo.message(conversation_id,content,message_date,sender_user_id,receiver_user_id)
+VALUES(3,'message from user_id 1','2019-05-06 23:56:09',1,4)

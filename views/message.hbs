@@ -1,0 +1,78 @@
+{{>searchBar}}
+<div class="messageContent">
+    <div class="left">
+        {{#each conversations}}
+            {{#xIf this.user1_user_id "==" ../user.user_id}}
+                <div class="each" data={{user2_user_id}}>            
+                    <div class="img">
+                        <a href="#"><img src={{this.image_url.[1]}}></a>
+                    </div>
+                    <a href="/message/{{../user.user_id}}/{{this.conversation_id}}">
+                        <div class="content">
+                            <p>{{this.firstName.[1]}} {{this.lastName.[1]}}<span class="recentMessageDate">{{this.conversation_date}}</span></p>
+                            <p>{{this.about.[1]}}</p>
+                        </div>
+                    </a>
+                </div>
+            {{/xIf}}
+            
+            {{#xIf this.user2_user_id "==" ../user.user_id}}
+                <div class="each" data={{user1_user_id}}>            
+                    <div class="img">
+                        <a href="#"><img src={{this.image_url.[0]}}></a>
+                    </div>
+                    <a href="/message/{{../user.user_id}}/{{this.conversation_id}}">
+                        <div class="content">
+                            <p>{{this.firstName.[0]}} {{this.lastName.[0]}}<span class="recentMessageDate">{{this.conversation_date}}</span></p>
+                            <p>{{this.about.[0]}}</p>
+                        </div>
+                    </a>
+                </div>
+            {{/xIf}}
+        {{/each}}
+    </div>
+
+    <div class="right">
+        {{#each message}}
+            <div class="eachMessage">
+                <h4><span>{{this.message_date}}</span></h4>
+                {{#xIf this.sender_user_id "==" ../user.user_id}}
+                    <div class="profileAndMessage">
+                        <div class="message" style="text-align: right;">
+                            <p class="p-name"><b>{{this.firstName.[0]}} {{this.lastName.[0]}}</b><span> xxx</span></p>
+                            <p class="p-message">{{this.content}}</p>
+                        </div>
+                        <div class="img2">
+                            <a href="#"><img src={{this.image_url.[0]}}></a>
+                        </div>
+                    </div>
+                {{/xIf}}
+
+                {{#xIf this.receiver_user_id "==" ../user.user_id}}
+                     <div class="profileAndMessage">
+                        <div class="img2">
+                            <a href="#"><img src={{this.image_url.[0]}}></a>
+                        </div>
+                        <div class="message">
+                            <p class="p-name"><b>{{this.firstName.[0]}} {{this.lastName.[0]}}</b><span> xxx</span></p>
+                            <p class="p-message">{{this.content}}</p>
+                        </div>
+                    </div>
+                {{/xIf}}
+            </div>
+        {{/each}}
+
+        <div class="reply_message">
+            <i class="up"></i>
+            <form action="/message/post" method="POST">
+                <textarea rows="6" name="message" placeholder="Write a message..."></textarea>
+                <input style="display:none" name="user_id" value="{{user.user_id}}">
+                <input style="display:none" name="conversation_id" value="{{conversation_id}}">
+                <div class="buttonSend">
+                    <button type="submit">Send</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

@@ -4,6 +4,7 @@ const homeController = require('../controllers/homeController');
 const searchController = require('../controllers/searchController');
 const postController = require('../controllers/postController');
 const userController = require('../controllers/userController');
+const messageController = require('../controllers/messageController');
 
 const router = express.Router();
 
@@ -25,7 +26,10 @@ router.get("/user/:user_id/edit", userController.edit);
 router.get("/user/:user_id/view/:user", userController.index);
 router.post("/user/likes", userController.increaseLikes);
 
-
-
+router.get("/message/:user_id", messageController.index);
+router.get("/message/:user_id/:conversation_id", messageController.index);
+router.post("/message/post",messageController.postMessage);
+router.get("/conversation/:user_id/:another_user_id",messageController.conversation);
+router.post("/conversation/check",messageController.conversationCheck);
 
 module.exports = router;

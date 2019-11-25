@@ -2,12 +2,15 @@ let loginModel = require('../models/loginData');
 let userModel = require('../models/userData')
 let postModel = require('../models/postData');
 let replyModel = require('../models/replyData');
+let messageModel = require('../models/messageData');
+
 let moment = require('moment')
+
 exports.userMain = async (req,res) =>{
     let user_id = req.params.user_id;
     let userData = await userModel.getUser(user_id);
     let postData = await postModel.getPost(user_id);
-
+    let conversation = await messageModel.getALLConversationByUserId(user_id);
    // let getUniquePostByReplys = await replyModel.getReply(user_id);
     let getPostWithPosterImg = await replyModel.getPostWithPosterImg(user_id);
     let getAllReplys = await replyModel.getAllReplys();
@@ -15,7 +18,7 @@ exports.userMain = async (req,res) =>{
     // console.log("*************************************************************");
     // console.log(getAllReplys);
     
-    res.render('home',{user:userData[0],userPost:postData,posts:getPostWithPosterImg,replys:getAllReplys});
+    res.render('home',{user:userData[0],conversation:conversation,userPost:postData,posts:getPostWithPosterImg,replys:getAllReplys});
 }
 exports.userPost = async (req,res) =>{
     let user_id = req.body.user_id;

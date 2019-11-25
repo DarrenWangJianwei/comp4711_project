@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>{{ pageTitle }}</title>
     <script defer src="/js/home.js"></script>
+    <script defer src="/js/message.js"></script>
     <link href='/css/homeCSS.css' rel='stylesheet' />
     {{#if searchCSS}}
         <link href='/css/searchCSS.css' rel='stylesheet' />
@@ -20,6 +21,14 @@
     
     {{#if detailCSS}}
         <link href='/css/stylesheet.css' rel='stylesheet' />
+    {{/if}}
+
+    {{#if messageCSS}}
+        <link href='/css/messageCSS.css' rel='stylesheet' />
+    {{/if}}
+
+    {{#if conversationCSS}}
+        <link href='/css/conversationCSS.css' rel='stylesheet' />
     {{/if}}
 </head>
 

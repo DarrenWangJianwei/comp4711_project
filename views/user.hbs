@@ -7,7 +7,7 @@
         <span>{{theUser.country}}</span>
     </div>
     <div class="messageBar">
-        <button>Message</button>
+        <a href="/conversation/{{user.user_id}}/{{theUser.user_id}}"><button>Message</button></a>
         <div class="likes">
             <p class="likes_p">{{theUser.likes}} Likes</p>
             <form action="/user/likes" method="POST">

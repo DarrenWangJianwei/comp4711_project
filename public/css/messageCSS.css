@@ -1,0 +1,130 @@
+.recentMessageDate{
+    float:right;
+}
+.messageContent{
+    width:90%;
+    margin:0 auto;
+    display: flex;
+    margin-top:20px;
+}
+.content{
+    margin-left:0px;
+}
+.content p{
+    margin-left: 10px;
+}
+.left{
+    text-align: left;
+    width:25%;
+    border-right: 1px solid #bdb3b3;
+    padding-right:10px;
+    min-height:700px;
+    margin-top:0px;
+}
+
+.messageContent h4 {
+    color: #bdb3b3;
+    width: 100%; 
+    text-align: center; 
+    border-bottom: 1px solid #a5a4a4; 
+    line-height: 0.1em;
+    margin: 10px 0 20px; 
+ } 
+ 
+ .messageContent h4>span { 
+     background:#fff; 
+     padding:0 10px; 
+ }
+ .right{
+     margin-left:20px;
+     border-left:1px solid #a5a4a4;
+ }
+ .img2 img{
+     width:60%;
+     border-radius: 50%;
+     border: 3px solid #73AD21;
+ }
+ .img2{
+     width:15%;
+     margin-left:5%;
+ }
+ .message{
+     width:75%;
+ }
+
+ .profileAndMessage{
+     margin-left:20px;
+     margin-top:40px;
+     margin-bottom:40px;
+ }
+ .profileAndMessage{
+     display: flex;
+ }
+ .p-message{
+     margin-top:10px;
+ }
+
+ .buttonSend{
+     background-color: rgba(204, 226, 233, 0.795);
+     text-align: right;
+ }
+ .reply_message{
+     margin-top:50px;
+     position: relative;
+ }
+ .reply_message textarea{
+     width:100%;
+     border: none;
+     overflow: auto;
+     outline: none;
+ 
+     -webkit-box-shadow: none;
+     -moz-box-shadow: none;
+     box-shadow: none;
+ 
+     resize: none; /*remove the resize handle on the bottom right*/
+     border-top: 1px solid #a5a4a4;
+     border-bottom:1px solid #a5a4a4;
+ }
+ .buttonSend button{
+    margin-top:10px;
+    margin-bottom:10px;
+    margin-right: 50px;
+    background-color: #3399FF;
+    color: white;
+    padding-top:5px;
+    padding-bottom:5px;
+    padding-left:10px;
+    padding-right:10px;
+    
+}
+
+i {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    position: absolute;
+    right:20px;
+    top:20px;
+  }
+  i:hover{
+    cursor: pointer;
+  }
+  .up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+  }
+.each a{
+    text-decoration: none;
+    color: #636363;
+}
+.each:hover {
+    background-color: #e4f8f488;
+}
+.img a {
+    cursor: grab;
+}
+.each a{
+    width:70%;
+}
