@@ -4,6 +4,12 @@ function getAllUsers() {
     let sql = "SELECT * FROM dbo.usersProfile;";
     return db.execute(sql);
 }
+function getUser_id(email,password){
+    let sql = "SELECT user_id FROM dbo.usersProfile "
+             +"WHERE email = '"+email+"' "
+             +"AND password = '" + password+"'; ";
+    return db.execute(sql);
+}
 function addNewUser(email,firstName,lastName,password){
     let sql = "INSERT INTO dbo.usersProfile (firstName,lastName,email,password) "
              +"OUTPUT INSERTED.user_id "
@@ -39,5 +45,6 @@ function updateDetails(data) {
 module.exports = {
     getAll : getAllUsers,
     addDetails : updateDetails,
-    addNewUser : addNewUser
+    addNewUser : addNewUser,
+    getUser_id : getUser_id
 }

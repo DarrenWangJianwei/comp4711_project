@@ -41,3 +41,23 @@ exports.postDetails = async (req, res, next) => {
     console.log("testing Error");
     res.redirect(301, '/user/'+a_user_id);
 }
+
+exports.checkUser = async (req, res) => {
+    let email = req.body.email;
+    let password = req.body.password;
+    let user_id = await loginModel.getUser_id(email,password);
+    console.log(user_id[0]);
+    if(user_id[0] !=null){
+        req.session.user_id = await user_id[0].user_id;
+        req.cookies.user_id = await user_id[0].user_id;
+        res.redirect(301,'/user/'+user_id[0].user_id);
+    }else{
+        res.redirect(301,'login');
+    }
+}
+exports.destroySessionAndCookies = async(req,res) =>{
+    await req.session.destroy();
+    await res.clearCookie("user_id");
+    console.log("testing");
+    res.redirect(301,'login');
+}

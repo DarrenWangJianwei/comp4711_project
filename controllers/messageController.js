@@ -1,10 +1,11 @@
 let userModel = require('../models/userData');
 let messageModel = require('../models/messageData');
-
+let sessionFunction = require('../controllers/sessionChecker');
 let moment = require('moment');
 
 exports.index = async (req, res) =>{
     let user_id = req.params.user_id;
+    sessionFunction.sessionChecker(req,res,user_id);
     let conversation = await messageModel.getALLConversationByUserId(user_id);
     let userData = await userModel.getUser(user_id);
     let conversation_id = req.params.conversation_id;
@@ -19,6 +20,7 @@ exports.index = async (req, res) =>{
 
 exports.postMessage = async (req, res) =>{
     let user_id = req.body.user_id;
+    sessionFunction.sessionChecker(req,res,user_id);
     let conversation_id = req.body.conversation_id;
     let message = req.body.message;
     let conversation = await messageModel.getConversation(conversation_id);
@@ -35,6 +37,7 @@ exports.postMessage = async (req, res) =>{
 
 exports.conversation = async (req, res) =>{
     let user_id = req.params.user_id;
+    sessionFunction.sessionChecker(req,res,user_id);
     let another_user_id = req.params.another_user_id;
     let another_userData = await userModel.getUser(another_user_id);
     let userData = await userModel.getUser(user_id);
@@ -43,6 +46,7 @@ exports.conversation = async (req, res) =>{
 
 exports.conversationCheck = async (req, res) =>{
     let user_id = req.body.user_id;
+    sessionFunction.sessionChecker(req,res,user_id);
     let another_user_id = req.body.another_user_id;
     let message = req.body.message;
     let message_date = moment(Date.now()).format('YYYY-MM-DD HH:mm:ss');

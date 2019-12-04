@@ -1,5 +1,6 @@
 let db = require('../util/connectionMSSQL');
 
+
 function getUserInfo(id) {
     let sql = "SELECT * FROM [dbo].[usersProfile] WHERE user_id = "+id+";";
     return db.execute(sql);

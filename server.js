@@ -6,8 +6,28 @@ const ip = require("ip");
 const expressHbs = require('express-handlebars');
 var Handlebars = require('handlebars');
 var HandlebarsIntl = require('handlebars-intl');
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
 
-console.log ( ip.address() );
+app.use(cookieParser());
+
+app.use(session({
+  key: 'user_id',
+  secret: 'secret',
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+      expires: 600000
+  }
+}));
+
+app.use((req, res, next) => {
+  if (req.cookies.user_id && !req.session.user_id) {
+      res.clearCookie('user_id');        
+  }
+  next();
+});
+
 HandlebarsIntl.registerWith(Handlebars);
 Handlebars.registerHelper("inc", function(value, options)
 {
@@ -99,7 +119,7 @@ app.use(bodyParser.json()) // middleware
 let gameRoutes = require('./routes/myRoutes');
 
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(express.static(__dirname + '/login'));
 
 app.use(gameRoutes);
 

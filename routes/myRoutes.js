@@ -7,12 +7,13 @@ const userController = require('../controllers/userController');
 const messageController = require('../controllers/messageController');
 
 const router = express.Router();
-
+router.get("/",loginController.userLogin);
 router.get("/login",loginController.userLogin);
+router.post("/getUser",loginController.checkUser);
 router.post("/submitDetails/:user_id", loginController.postDetails);
 router.post('/signUp', loginController.userDetailsPage);
+router.get("/out",loginController.destroySessionAndCookies);
 
-router.get("/",homeController.index);
 router.get("/user/:user_id",homeController.userMain);
 router.post("/user/post",homeController.userPost);
 router.post("/user/discussion",homeController.LastestDiscussion);
@@ -22,6 +23,7 @@ router.post("/user/discussion/reply/submit", homeController.postReply);
 router.get("/user/:user_id/posts", postController.getAllPostByUser);
 router.post("/user/search/subject", searchController.getSubjectPost);
 router.get("/user/:user_id/edit", userController.edit);
+
 
 router.get("/user/:user_id/view/:user", userController.index);
 router.post("/user/likes", userController.increaseLikes);

@@ -3,25 +3,33 @@ let userModel = require('../models/userData')
 let postModel = require('../models/postData');
 let replyModel = require('../models/replyData');
 let messageModel = require('../models/messageData');
+let sessionFunction = require('../controllers/sessionChecker');
 
 let moment = require('moment')
 
+// var sessionChecker = (req, res,user_id) => {
+//     console.log("Darren session: " + req.session.user_id);
+//     console.log("Darren cookies: " + req.cookies.user_id);
+//     if (!req.session.user_id || !req.cookies.user_id || (req.session.user_id != user_id)) {
+//         res.redirect(301,'/login');
+//     }
+// };
+
 exports.userMain = async (req,res) =>{
     let user_id = req.params.user_id;
+    sessionFunction.sessionChecker(req,res,user_id);
     let userData = await userModel.getUser(user_id);
     let postData = await postModel.getPost(user_id);
     let conversation = await messageModel.getALLConversationByUserId(user_id);
-   // let getUniquePostByReplys = await replyModel.getReply(user_id);
+  
     let getPostWithPosterImg = await replyModel.getPostWithPosterImg(user_id);
     let getAllReplys = await replyModel.getAllReplys();
-    // console.log(getPostWithPosterImg);
-    // console.log("*************************************************************");
-    // console.log(getAllReplys);
     
     res.render('home',{user:userData[0],conversation:conversation,userPost:postData,posts:getPostWithPosterImg,replys:getAllReplys});
 }
 exports.userPost = async (req,res) =>{
     let user_id = req.body.user_id;
+    sessionFunction.sessionChecker(req,res,user_id);
     let topic = req.body.topic;
     let subject = req.body.subject;
     let detail = req.body.detail;
@@ -49,6 +57,7 @@ exports.postReply = async(req,res)=>{
     let reply_date = moment(Date.now()).format('YYYY-MM-DD HH:mm:ss');
     let post_id = req.body.post_id;
     let user_id = req.body.user_id;
+    sessionFunction.sessionChecker(req,res,user_id);
     console.log(comment);
     console.log(reply_date);
     console.log(post_id);
