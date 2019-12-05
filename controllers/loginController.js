@@ -38,6 +38,8 @@ exports.postDetails = async (req, res, next) => {
         lastName : a_password
     }
     let postUserDetail = await loginModel.addDetails(detailsObject)
+    req.session.user_id = a_user_id;
+    req.cookies.user_id = a_user_id;
     console.log("testing Error");
     res.redirect(301, '/user/'+a_user_id);
 }
