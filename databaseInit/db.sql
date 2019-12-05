@@ -1,3 +1,5 @@
+drop table dbo.message
+drop table dbo.conversation
 drop table dbo.reply
 drop table dbo.post
 drop table dbo.usersProfile;

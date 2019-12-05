@@ -1,6 +1,6 @@
 let loginModel = require('../models/loginData');
 
-exports.userLogin = (req, res) => {
+exports. userLogin = (req, res) => {
     res.render('login', { loginCSS: true });
 }
 
@@ -54,6 +54,8 @@ exports.checkUser = async (req, res) => {
         req.cookies.user_id = await user_id[0].user_id;
         res.redirect(301,'/user/'+user_id[0].user_id);
     }else{
+        await req.session.destroy();
+        await res.clearCookie("user_id");
         res.redirect(301,'login');
     }
 }

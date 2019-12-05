@@ -14,7 +14,9 @@ function getSubjectPostInfo(subject){
     return db.execute(sql);
 }
 function postSubject(subject,detail,topic,post_date,user_id){
+    
     let sql = "INSERT INTO [dbo].[post] (subject,details,topic,post_date,user_id) VALUES ('"+subject+"', '"+detail+"', '"+topic+"', '"+post_date+"', "+user_id+");";
+    console.log(sql);
     return db.execute(sql);
 }
 function getPostInfo(post_id){
